@@ -1,24 +1,35 @@
-# 
+# HikeHack
+An ACV Hackathon project.
 
-## Project setup
+HikeHack aims to help discover hikes, and view your previous hikes.
+
+## Backend
+
+### Project setup
+```
+cd server
+go run main.go
+```
+## Frontend
+### Project setup
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+#### Compiles and hot-reloads for development
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+#### Compiles and minifies for production
 ```
 yarn build
 ```
 
-### Lints and fixes files
+#### Lints and fixes files
 ```
 yarn lint
 ```
 
-### Customize configuration
+#### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
