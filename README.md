@@ -1,4 +1,4 @@
-# hikehack
+# 
 
 ## Project setup
 ```
