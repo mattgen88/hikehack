@@ -15,6 +15,7 @@
     "leaflet-gpx": "^1.5.1",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
+    "vue-sidebar-menu": "^4.7.4",
     "vue2-leaflet": "^2.7.0"
   },
   "devDependencies": {

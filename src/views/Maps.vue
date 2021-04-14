@@ -21,13 +21,13 @@ export default {
         };
     },
     created() {
-    const api_uri = process.env.server || "http://localhost:8088";
+    const api_uri = process.env.server || "https://hikehack-backend.herokuapp.com/";
     console.debug(api_uri);
     axios.get(api_uri+"/trails")
         .then(r => {
             for(var i =0; i < r.data.trails.length; i++) {
-                console.debug(r.data.trails[i]);
-                this.trails.push({id: r.data.trails[i], name: r.data.trails[i].replace("_", " ")});
+                this.trails.push({id: r.data.trails[i], name: r.data.trails[i].replace(/_/g, " ")});
+                console.debug(this.trails);
             }
         });
     }
@@ -41,5 +41,7 @@ export default {
 .maps a {
     line-height: 30px;
     font-weight: bold;
-    color: #2c3e50;}
+    color: #2c3e50;
+    text-transform: capitalize;
+}
 </style>
