@@ -2,12 +2,8 @@
 <div>
   <div style="height: 80vh">
     <LMap  @ready="onReady" @locationfound="onLocationFound" :zoom="zoom" :center="center">
-      <LTileLayer :url="url"></LTileLayer>
-      <ul>
-        <li v-for="(l,i) in latlong" :key="i">
-            <LMarker :lat-lng="l"></LMarker>
-        </li>
-      </ul>
+      <l-tile-layer :url="url" :attribution="attribution" />
+      <LGpx :gpx-file="trail" :visible="gpxVisible" @gpx-loaded="onGpxLoaded" :gpx-options="gpxOptions" />
     </LMap>
   </div>
   <br/>
@@ -16,26 +12,34 @@
 </template>
 
 <script>
-//import L from 'leaflet';
-import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
-// const axios = require("axios");
+// import L from 'leaflet';
+import { LMap, LTileLayer } from "vue2-leaflet";
+import LGpx from '@/components/LGpx.vue'
+
 export default {
   name: "Map",
   components: {
     LMap,
     LTileLayer,
-    LMarker
+    LGpx
   },
   data() {
     return {
       url: "https://{s}.tile.osm.org/{z}/{x}/{y}.png",
       zoom: 13,
       center: [42.89,-78.85],
-      bounds: null,
-      results : null,
-      country : [],
-      latlong : [],
-      confirmed : [],
+      gpxVisible: false,
+      trail: null,
+      map: null,
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+      gpxOptions: {
+        async: true,
+        marker_options: {
+          shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+          startIconUrl: require("leaflet/dist/images/marker-icon.png"),
+          endIconUrl: require("leaflet/dist/images/marker-icon.png")
+        }
+      }
     };
   },
   methods: {
@@ -44,34 +48,17 @@ export default {
     },
     onLocationFound(location){
       console.log(location);
+    },
+    onGpxLoaded(loadedEvent) {
+      console.debug({loadedEvent});
+      this.gpxVisible = true;
+      // @TODO: Center on loaded trail start
     }
   },
   created() {
-    //   axios.get("https://corona.lmao.ninja/v2/jhucsse")
-    //   .then(r => r["data"])
-    //   .then(data => {
-    //     for(var i=0;i<742;i++){
-    //       if(data[i].country in this.country){
-    //         continue;
-    //       }
-    //       else{
-    //         if(data[i].coordinates["latitude"]!=null && data[i].coordinates["longitude"]!==null){
-    //           var a=[];
-    //           this.country.push(data[i].country);
-    //           a.push(parseFloat(data[i].coordinates["latitude"]));
-    //           a.push(parseFloat(data[i].coordinates["longitude"]));
-    //           this.confirmed.push(data[i].stats["confirmed"]);
-    //           console.log(data[i].country);
-    //           console.log(data[i].coordinates["latitude"]);
-    //           console.log(data[i].coordinates["longitude"]);
-    //           console.log(data[i].stats["confirmed"]);
-    //           this.latlong.push(a);
-    //         }
-    //       }
-    //     }
-    //     console.log(this.latlong);
-    //   }
-    // );
+    const api_uri = process.env.server || "http://localhost:8088";
+    const url = api_uri+"/trails/"+this.$attrs.map;
+    this.trail = url;
   }
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="maps">
-    <Map/>
+    <Map v-bind:map="this.$route.params.map" />
   </div>
 </template>
 
