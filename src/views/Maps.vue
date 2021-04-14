@@ -1,10 +1,8 @@
 <template>
     <div class="maps">
-        <ul>
-            <li v-for="trail in trails" v-bind:key="trail.id">
-                <router-link v-bind:to="{ name: 'ViewMap', params: {map: trail.id} }">{{trail.name}}</router-link>
-            </li>
-        </ul>
+        <template v-for="trail in trails">
+            <router-link v-bind:key="trail.id" v-bind:to="{ name: 'ViewMap', params: {map: trail.id} }">{{trail.name}}<br /></router-link>
+        </template>
     </div>
 </template>
 
@@ -36,3 +34,12 @@ export default {
 
 }
 </script>
+<style>
+.maps li {
+    list-style-type: none;
+}
+.maps a {
+    line-height: 30px;
+    font-weight: bold;
+    color: #2c3e50;}
+</style>

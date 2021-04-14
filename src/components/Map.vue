@@ -1,7 +1,7 @@
 <template>
 <div>
   <div style="height: 80vh">
-    <LMap  @ready="onReady" @locationfound="onLocationFound" :zoom="zoom" :center="center">
+    <LMap  @ready="onReady" @locationfound="onLocationFound" :zoom="zoom" :center="center" ref="map">
       <l-tile-layer :url="url" :attribution="attribution" />
       <LGpx :gpx-file="trail" :visible="gpxVisible" @gpx-loaded="onGpxLoaded" :gpx-options="gpxOptions" />
     </LMap>
@@ -50,9 +50,10 @@ export default {
       console.log(location);
     },
     onGpxLoaded(loadedEvent) {
-      console.debug({loadedEvent});
+      const { mapObject } = this.$refs.map;
+      const gpxMapObject = loadedEvent.target;
+      mapObject.fitBounds(gpxMapObject.getBounds());
       this.gpxVisible = true;
-      // @TODO: Center on loaded trail start
     }
   },
   created() {
