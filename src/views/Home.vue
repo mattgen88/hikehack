@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <h1>Hike Hack</h1>
   </div>
 </template>
 
@@ -14,3 +13,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.home img {
+  width: 100%;
+}
+</style>

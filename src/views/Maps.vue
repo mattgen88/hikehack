@@ -1,5 +1,6 @@
 <template>
     <div class="maps">
+        <h1>Hikes</h1>
         <template v-for="trail in trails">
             <router-link v-bind:key="trail.id" v-bind:to="{ name: 'ViewMap', params: {map: trail.id} }">{{trail.name}}<br /></router-link>
         </template>

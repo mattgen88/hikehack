@@ -35,15 +35,15 @@
             icon: 'icon-home3'
           },
           {
-            href: '/about',
-            title: 'About',
-            icon: 'icon-question'
-          },
-          {
             href: '/maps',
             title: 'Maps',
             icon: 'icon-map'
           },
+          {
+            href: '/about',
+            title: 'About',
+            icon: 'icon-question'
+          }
         ],
       collapsed: false,
       isOnMobile: false
