@@ -3,7 +3,6 @@
     id="demo"
     :class="[{'collapsed' : collapsed}, {'onmobile' : isOnMobile}]"
   >
-    <div class="demo">
       <div class="container">
         <router-view />
       </div>
@@ -22,7 +21,6 @@
         @click="collapsed = true"
       />
     </div>
-  </div>
 </template>
 
 

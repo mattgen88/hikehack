@@ -1,9 +1,9 @@
 <template>
 <div>
   <div style="height: 80vh">
-    <LMap  @ready="onReady" @locationfound="onLocationFound" :zoom="zoom" :center="center" ref="map">
+    <LMap  @ready="onReady" :zoom="zoom" :center="center" ref="map">
       <l-tile-layer :url="url" :attribution="attribution" />
-      <LGpx :gpx-file="trail" :visible="gpxVisible" @gpx-loaded="onGpxLoaded" :gpx-options="gpxOptions" />
+      <LGpx :v-if="loaded" :gpx-file="trail" :visible="gpxVisible" @gpx-loaded="onGpxLoaded" :gpx-options="gpxOptions" />
     </LMap>
   </div>
   <br/>
@@ -31,6 +31,7 @@ export default {
       gpxVisible: false,
       trail: null,
       map: null,
+      loaded: false,
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       gpxOptions: {
         async: true,
@@ -43,11 +44,8 @@ export default {
     };
   },
   methods: {
-    onReady (mapObject) {
-      mapObject.locate({setView: true, maxZoom: 13});
-    },
-    onLocationFound(location){
-      console.log(location);
+    onReady () {
+      this.loaded=true;
     },
     onGpxLoaded(loadedEvent) {
       const { mapObject } = this.$refs.map;
