@@ -4,7 +4,7 @@
     :class="[{'collapsed' : collapsed}, {'onmobile' : isOnMobile}]"
   >
       <div class="container">
-        <router-view />
+        <router-view @authenticated="onAuthenticated"/>
       </div>
       <sidebar-menu
         :menu="menu"
@@ -69,6 +69,9 @@
         this.isOnMobile = false
         this.collapsed = false
       }
+    },
+    onAuthenticated() {
+      console.debug("Authenticated");
     }
   }
   }

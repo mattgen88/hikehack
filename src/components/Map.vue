@@ -55,7 +55,7 @@ export default {
     }
   },
   created() {
-    const api_uri = process.env.server || "https://hikehack-backend.herokuapp.com/";
+    const api_uri = process.env.server || "https://hikehack-backend.herokuapp.com";
     const url = api_uri+"/trails/"+this.$attrs.map;
     this.trail = url;
   }
