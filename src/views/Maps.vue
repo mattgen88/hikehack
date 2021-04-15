@@ -22,7 +22,7 @@ export default {
         };
     },
     created() {
-    const api_uri = process.env.server || "http://hikehack-backend.herokuapp.com";
+    const api_uri = process.env.server || "https://hikehack-backend.herokuapp.com";
     axios.get(api_uri+"/trails")
         .then(r => {
             for(var i =0; i < r.data.trails.length; i++) {
