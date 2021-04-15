@@ -32,7 +32,7 @@ export default {
     axios.get(api_uri+"/trails")
         .then(r => {
             for(var i =0; i < r.data.trails.length; i++) {
-                this.trails.push({id: r.data.trails[i], name: r.data.trails[i].replace(/_/g, " ")});
+                this.trails.push({id: r.data.trails[i].ID, name: r.data.trails[i].Name});
             }
         });
     }
