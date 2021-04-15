@@ -42,7 +42,10 @@
                     const formData = new FormData();
                     formData.append("username", this.username);
                     formData.append("password", this.password);
-                    axios.post(url, formData, {headers: {'Content-Type': 'multipart/form-data'}})
+                    axios.post(url, formData, {
+                        headers: {'Content-Type': 'multipart/form-data'},
+                        withCredentials: true,
+                        })
                     .then(response => {
                         console.debug(response);
                         if (response.data.result) {
