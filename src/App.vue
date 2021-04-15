@@ -115,9 +115,6 @@ body {
 .demo {
   padding: 50px;
 }
-.container {
-  max-width: 900px;
-}
 pre {
   font-family: Consolas, monospace;
   color: #000;
