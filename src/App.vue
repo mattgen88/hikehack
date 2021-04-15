@@ -102,6 +102,9 @@ body {
 #demo.onmobile {
   padding-left: 50px;
 }
+.onmobile .container {
+  padding: 10px;
+}
 .sidebar-overlay {
   position: fixed;
   width: 100%;
