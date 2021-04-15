@@ -2,14 +2,14 @@
     <fieldset>
         <h4>Login</h4>
         <form>
-            <label for="username" >Username</label>
+            <label for="login_username" >Username</label>
             <div>
-                <input id="username" type="username" v-model="username" required autofocus>
+                <input id="login_username" type="username" v-model="username" required autofocus autocomplete>
             </div>
             <div>
-                <label for="password" >Password</label>
+                <label for="login_password" >Password</label>
                 <div>
-                    <input id="password" type="password" v-model="password" required>
+                    <input id="login_password" type="password" v-model="password" required autocomplete>
                 </div>
             </div>
             <div>

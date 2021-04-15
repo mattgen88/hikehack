@@ -2,26 +2,26 @@
     <fieldset>
         <h4>Register</h4>
         <form>
-            <label for="username" >Username</label>
+            <label for="reg_username" >Username</label>
             <div>
-                <input id="username" type="username" v-model="username" required autofocus>
+                <input id="reg_username" type="username" v-model="username" required autofocus autocomplete="no">
             </div>
             <div>
-                <label for="password" >Password</label>
+                <label for="reg_password" >Password</label>
                 <div>
-                    <input id="password" type="password" v-model="password" required>
+                    <input id="reg_password" type="password" v-model="password" required autocomplete="no">
                 </div>
             </div>
             <div>
-                <label for="fullname" >Full Name</label>
+                <label for="reg_fullname" >Full Name</label>
                 <div>
-                    <input id="fullname" type="fullname" v-model="fullname">
+                    <input id="reg_fullname" type="fullname" v-model="fullname" autocomplete="no">
                 </div>
             </div>
             <div>
-                <label for="email" >Email</label>
+                <label for="reg_email" >Email</label>
                 <div>
-                    <input id="email" type="email" v-model="email">
+                    <input id="reg_email" type="email" v-model="email" autocomplete="no">
                 </div>
             </div>
             <div>
