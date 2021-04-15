@@ -34,6 +34,9 @@ export default {
 }
 </script>
 <style scoped>
+.home {
+  text-align: center;
+}
 .home img {
   width: 100%;
   max-width: 400px;

@@ -102,6 +102,11 @@ body {
 #demo.onmobile {
   padding-left: 50px;
 }
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
+}
 .onmobile .container {
   padding: 10px;
 }
