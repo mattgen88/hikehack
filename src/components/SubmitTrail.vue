@@ -41,7 +41,10 @@
                     const formData = new FormData();
                     formData.append("name", this.name);
                     formData.append("file", this.$refs.file.files[0]);
-                    axios.post(url, formData, {'Content-Type': 'multipart/form-data'})
+                    axios.post(url, formData, {
+                        headers: {'Content-Type': 'multipart/form-data'},
+                        withCredentials: true
+                        })
                     .then(response => {
                         console.debug(response);
                     })

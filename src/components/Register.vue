@@ -55,7 +55,7 @@
                     formData.append("password", this.password);
                     formData.append("fullname", this.fullname);
                     formData.append("email", this.email);
-                    axios.post(url, formData, {'Content-Type': 'multipart/form-data'})
+                    axios.post(url, formData, {headers: {'Content-Type': 'multipart/form-data'}})
                     .then(response => {
                         console.debug(response)
                     })
