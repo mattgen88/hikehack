@@ -4,21 +4,27 @@
         <template v-for="trail in trails">
             <router-link v-bind:key="trail.id" v-bind:to="{ name: 'ViewMap', params: {map: trail.id} }">{{trail.name}}<br /></router-link>
         </template>
+        <SubmitTrail :authenticated="this.$props.authenticated" />
     </div>
 </template>
 
 <script>
+import SubmitTrail from '../components/SubmitTrail.vue';
 const axios = require("axios");
 export default {
     name: 'Maps',
     components: {
+        SubmitTrail
     },
     methods: {
 
     },
+    props: {
+        authenticated: Boolean,
+    },
     data() {
         return {
-            trails: []
+            trails: [],
         };
     },
     created() {

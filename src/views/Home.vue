@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Hike Hack logo" src="../assets/logo.png">
-    <template v-if="authenticated">
+    <template v-if="this.$props.authenticated">
     <h3>Welcome!</h3>
     </template>
     <template  v-else>
@@ -18,10 +18,8 @@ import Login from '@/components/Login.vue';
 import Register from '@/components/Register.vue';
 export default {
   name: 'Home',
-  data() {
-    return {
-      authenticated: false
-    };
+  props: {
+    authenticated: Boolean,
   },
   components: {
     Login,
@@ -30,7 +28,7 @@ export default {
   methods: {
     onAuthenticated() {
       this.$emit("authenticated");
-      this.authenticated = true;
+      this.$props.authenticated = true;
     }
   }
 }
