@@ -1,5 +1,5 @@
 <template>
-    <div v-if="!this.$props.authenticated">
+    <fieldset>
         <h4>Login</h4>
         <form>
             <label for="username" >Username</label>
@@ -18,7 +18,7 @@
                 </button>
             </div>
         </form>
-    </div>
+    </fieldset>
 </template>
 <script>
     var axios = require('axios');
@@ -28,9 +28,6 @@
                 username : "",
                 password : "",
             }
-        },
-        props: {
-            authenticated: Boolean,
         },
         methods : {
             handleSubmit(e){
@@ -50,7 +47,6 @@
                         console.debug(response);
                         if (response.data.result) {
                             this.$emit("authenticated");
-                            this.$props.authenticated=true;
                         }
                     })
                     .catch(function (error) {

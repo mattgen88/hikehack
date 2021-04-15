@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <fieldset>
         <h4>Register</h4>
         <form>
             <label for="username" >Username</label>
@@ -30,7 +30,7 @@
                 </button>
             </div>
         </form>
-    </div>
+    </fieldset>
 </template>
 <script>
     var axios = require('axios');
