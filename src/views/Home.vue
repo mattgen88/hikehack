@@ -2,12 +2,12 @@
   <div class="home">
     <img alt="Hike Hack logo" src="../assets/logo.png">
     <template v-if="this.$props.authenticated">
-    <h3>Welcome!</h3>
+      <h3>Welcome!</h3>
     </template>
     <template  v-else>
-    <Login @authenticated="onAuthenticated" />
-    <p>Need an account?</p>
-    <Register />
+      <Login v-on="$listeners" />
+      <p>Need an account?</p>
+      <Register v-on="$listeners" />
     </template>
   </div>
 </template>
@@ -19,18 +19,12 @@ import Register from '@/components/Register.vue';
 export default {
   name: 'Home',
   props: {
-    authenticated: Boolean,
+    authenticated: Boolean
   },
   components: {
     Login,
     Register
   },
-  methods: {
-    onAuthenticated() {
-      this.$emit("authenticated");
-      this.$props.authenticated = true;
-    }
-  }
 }
 </script>
 <style scoped>

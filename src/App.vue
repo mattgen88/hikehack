@@ -35,6 +35,11 @@
             icon: 'icon-home3'
           },
           {
+            href: '/viewmap',
+            title: 'Near By',
+            icon: 'icon-location2'
+          },
+          {
             href: '/maps',
             title: 'Maps',
             icon: 'icon-map'
